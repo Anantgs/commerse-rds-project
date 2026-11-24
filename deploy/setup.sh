@@ -34,7 +34,7 @@ python3 -m venv "${APP_DIR}/.venv"
 "${APP_DIR}/.venv/bin/pip" install -r "${APP_DIR}/requirements.txt"
 
 umask 077
-printf 'DATABASE_URL=postgresql+psycopg://%s:%s@%s:5432/%s\nSECRET_KEY=%s\nFLASK_ENV=production\n' \\
+printf 'DATABASE_URL=postgresql+psycopg://%s:%s@%s:5432/%s\nSECRET_KEY=%s\nFLASK_ENV=production\n' \
   "${DB_USER}" "${ENCODED_PASSWORD}" "${RDS_ENDPOINT}" "${DB_NAME}" "${SECRET_KEY}" > "${ENV_FILE}"
 chmod 600 "${ENV_FILE}"
 
