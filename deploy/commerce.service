@@ -3,11 +3,11 @@ Description=Commerce Flask application
 After=network.target
 
 [Service]
-User=ec2-user
-Group=ec2-user
-WorkingDirectory=/opt/commerce/02-AWS-NOTES/RDS/Application
-EnvironmentFile=/opt/commerce/02-AWS-NOTES/RDS/Application/.env
-ExecStart=/opt/commerce/02-AWS-NOTES/RDS/Application/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 'app:app'
+User=root
+Group=root
+WorkingDirectory=__APP_DIR__
+EnvironmentFile=__APP_DIR__/.env
+ExecStart=__APP_DIR__/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 'app:app'
 Restart=always
 RestartSec=5
 
