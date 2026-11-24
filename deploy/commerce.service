@@ -1,0 +1,15 @@
+[Unit]
+Description=Commerce Flask application
+After=network.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/opt/commerce/02-AWS-NOTES/RDS/Application
+EnvironmentFile=/opt/commerce/02-AWS-NOTES/RDS/Application/.env
+ExecStart=/opt/commerce/02-AWS-NOTES/RDS/Application/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 'app:app'
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
